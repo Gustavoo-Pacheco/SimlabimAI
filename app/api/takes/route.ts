@@ -8,7 +8,7 @@ import { takes } from "@/lib/db/schema";
 import { upsertSong } from "@/lib/upsert-author";
 
 const MIN_BYTES = 8 * 1024;
-const MAX_BYTES = 5 * 1024 * 1024;
+const MAX_BYTES = 12 * 1024 * 1024;
 const DEDUP_WINDOW_MS = 5_000;
 const UA_MAX = 512;
 
