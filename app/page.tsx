@@ -235,8 +235,8 @@ export default function HomePage() {
             <option value="" disabled>
               {songsLoaded ? "Selecione…" : "Carregando…"}
             </option>
-            {songOptions}
             <option value={NEW_SONG}>+ Adicionar nova música</option>
+            {songOptions}
           </select>
         </label>
 
