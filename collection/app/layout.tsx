@@ -23,7 +23,7 @@ const newsreader = Newsreader({
 });
 
 export const metadata: Metadata = {
-  title: "SimlabimAI — Coleta de amostras vocais",
+  title: "SimsalabimAI — Coleta de amostras vocais",
   description:
     "Um pequeno arquivo colaborativo de gravações cantadas, cantaroladas e assobiadas.",
 };

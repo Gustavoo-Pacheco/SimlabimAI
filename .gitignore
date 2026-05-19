@@ -1,7 +1,5 @@
 node_modules/
 .next/
-.open-next/
-.wrangler/
 .env
 .env.local
 .env.*.local
@@ -9,4 +7,9 @@ node_modules/
 .DS_Store
 tsconfig.tsbuildinfo
 next-env.d.ts
-.dev.vars
+
+# Python venvs (model/ and dataset/ use their own)
+.venv*/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/

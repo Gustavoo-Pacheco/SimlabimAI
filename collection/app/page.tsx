@@ -318,7 +318,7 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer className="mt-12 flex w-full flex-col items-center gap-1 text-[12px] text-[color:var(--color-ink-muted)]">
-        <span>SimlabimAI</span>
+        <span>SimsalabimAI</span>
         <span>Insper AI · 2026</span>
       </footer>
 
