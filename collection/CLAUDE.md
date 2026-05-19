@@ -116,7 +116,7 @@ DATABASE_URL=                 # Supabase pooled connection string
 # INVITE_CODE=                # reserved for v2 invite-gate
 ```
 
-`drizzle.config.ts` and `scripts/seed.ts` both call `dotenv.config({ path: '.env.local' })` — they read from CWD, so always run them from `collection/`.
+`scripts/seed.ts` calls `dotenv.config({ path: '.env.local' })` — it reads from CWD, so always run from `collection/`.
 
 ## Commands (all run from `collection/`)
 
@@ -126,10 +126,10 @@ npm run dev                    # http://localhost:3000
 npm run build                  # next build
 npm run start                  # production preview
 npm run lint
-npm run db:generate            # drizzle-kit generate (writes drizzle/<n>_*.sql)
-npm run db:push                # drizzle-kit push (mutates the real DB — be careful)
 npm run db:seed                # apply drizzle/seed.sql to Postgres
 ```
+
+**Schema changes**: `drizzle-kit` is no longer installed. The schema in `lib/db/schema.ts` is treated as documentation — to change the actual DB schema, write SQL by hand in Supabase Studio's SQL editor, then update `lib/db/schema.ts` to match. If schema changes get frequent, reinstall `drizzle-kit` and reintroduce a `drizzle.config.ts`.
 
 ## Workflow rules
 

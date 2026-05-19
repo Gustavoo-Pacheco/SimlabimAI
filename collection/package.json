@@ -10,8 +10,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "db:generate": "drizzle-kit generate",
-    "db:push": "drizzle-kit push",
     "db:seed": "tsx scripts/seed.ts"
   },
   "dependencies": {
@@ -28,7 +26,6 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "dotenv": "^16.4.5",
-    "drizzle-kit": "^0.28.0",
     "tailwindcss": "^4.0.0",
     "tsx": "^4.19.2",
     "typescript": "^5.6.3"

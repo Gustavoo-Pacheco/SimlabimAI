@@ -44,12 +44,19 @@ In Supabase Studio → **Storage** → **New bucket**:
 - Name: **`audio`** (or whatever `SUPABASE_BUCKET` is set to)
 - Public: **off** (private — uploads go via signed URLs)
 
-### 4. Push schema + seed
+### 4. Create the schema + seed
+
+Open Supabase Studio → **SQL Editor** and run the schema DDL (mirror of
+`lib/db/schema.ts` — `songs` and `takes` tables with their indexes). Then
+seed:
 
 ```bash
-npm run db:push     # creates songs/takes tables in Postgres
 npm run db:seed     # inserts example songs from drizzle/seed.sql
 ```
+
+`drizzle-kit` is no longer installed, so there is no `db:push`. Schema
+changes are done by hand in Supabase Studio; keep `lib/db/schema.ts` in
+sync.
 
 ## Develop
 
