@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 const TARGET_SAMPLE_RATE = 16000;
+const MAX_RECORD_SECONDS = 20 * 60;
 
 type State = "idle" | "recording" | "processing" | "ready" | "error";
 
@@ -212,7 +213,13 @@ export default function Recorder({ onWavReady, disabled }: Props) {
 
       startedAtRef.current = performance.now();
       const updateElapsed = () => {
-        setElapsed((performance.now() - startedAtRef.current) / 1000);
+        const secs = (performance.now() - startedAtRef.current) / 1000;
+        setElapsed(secs);
+        if (secs >= MAX_RECORD_SECONDS) {
+          const r = mediaRecorderRef.current;
+          if (r && r.state !== "inactive") r.stop();
+          return;
+        }
         elapsedRafRef.current = requestAnimationFrame(updateElapsed);
       };
       elapsedRafRef.current = requestAnimationFrame(updateElapsed);

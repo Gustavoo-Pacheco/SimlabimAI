@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import Recorder from "@/components/Recorder";
+import SongPicker from "@/components/SongPicker";
 import { isSlug, slugify, STYLES, type Style } from "@/lib/slugs";
 
 interface SongOption {
@@ -161,19 +162,8 @@ export default function HomePage() {
     }
   };
 
-  const songOptions = useMemo(
-    () =>
-      songs.map((s) => (
-        <option key={s.slug} value={s.slug}>
-          {s.title}
-          {s.author !== "unknown" ? ` — ${s.author}` : ""}
-        </option>
-      )),
-    [songs],
-  );
-
   return (
-    <main className="mx-auto flex min-h-screen w-full max-w-xl flex-col items-center px-4 pb-16 pt-10 text-center sm:pt-14">
+    <main className="mx-auto flex min-h-screen w-full max-w-xl flex-col items-center px-4 pb-16 pt-10 text-center sm:pt-14 md:[zoom:1.1]">
       {/* Header */}
       <header
         className="reveal flex flex-col items-center gap-5"
@@ -218,27 +208,22 @@ export default function HomePage() {
         style={{ ["--reveal-index" as string]: 2 }}
       >
         <SectionTitle>Qual música</SectionTitle>
-        <label className="flex w-full flex-col items-center gap-2">
+        <div className="flex w-full flex-col items-center gap-2">
           <span className={labelClass}>Música</span>
-          <select
+          <SongPicker
+            options={songs}
             value={songChoice}
-            onChange={(e) => {
-              setSongChoice(e.target.value);
-              if (e.target.value !== NEW_SONG) {
+            newSongValue={NEW_SONG}
+            loading={!songsLoaded}
+            onChange={(val) => {
+              setSongChoice(val);
+              if (val !== NEW_SONG) {
                 setAuthor("");
                 setNewTitle("");
               }
             }}
-            disabled={!songsLoaded}
-            className={inputClass}
-          >
-            <option value="" disabled>
-              {songsLoaded ? "Selecione…" : "Carregando…"}
-            </option>
-            <option value={NEW_SONG}>+ Adicionar nova música</option>
-            {songOptions}
-          </select>
-        </label>
+          />
+        </div>
 
         {isAddingNew && (
           <label className="flex w-full flex-col items-center gap-2">
