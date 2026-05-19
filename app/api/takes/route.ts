@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { and, desc, eq, gte } from "drizzle-orm";
 import { assertSlug, assertStyle, BadInput, isSlug } from "@/lib/slugs";
 import { downloadObject } from "@/lib/storage";
 import { parseWavHeader } from "@/lib/wav";
@@ -9,7 +8,6 @@ import { upsertSong } from "@/lib/upsert-author";
 
 const MIN_BYTES = 8 * 1024;
 const MAX_BYTES = 40 * 1024 * 1024;
-const DEDUP_WINDOW_MS = 5_000;
 const UA_MAX = 512;
 
 async function sha256Hex(bytes: Uint8Array): Promise<string> {
@@ -29,7 +27,6 @@ export async function POST(req: Request) {
       song_slug?: unknown;
       song_title?: unknown;
       author?: unknown;
-      contributor?: unknown;
       style?: unknown;
       storage_key?: unknown;
       take_id?: unknown;
@@ -37,7 +34,6 @@ export async function POST(req: Request) {
     };
 
     const songSlug = assertSlug(body.song_slug, "song_slug");
-    const contributor = assertSlug(body.contributor, "contributor");
     const style = assertStyle(body.style);
 
     const rawAuthor =
@@ -80,25 +76,6 @@ export async function POST(req: Request) {
 
     const db = getDb();
     const now = Date.now();
-    const cutoff = now - DEDUP_WINDOW_MS;
-    const recent = await db
-      .select({ id: takes.id, createdAt: takes.createdAt })
-      .from(takes)
-      .where(
-        and(
-          eq(takes.songId, song.id),
-          eq(takes.contributor, contributor),
-          gte(takes.createdAt, cutoff),
-        ),
-      )
-      .orderBy(desc(takes.createdAt))
-      .limit(1);
-    if (recent.length > 0) {
-      return NextResponse.json(
-        { error: "duplicate submission within 5s" },
-        { status: 409 },
-      );
-    }
 
     const userAgent =
       typeof body.user_agent === "string"
@@ -108,7 +85,6 @@ export async function POST(req: Request) {
     await db.insert(takes).values({
       id: takeId,
       songId: song.id,
-      contributor,
       storageKey: expectedKey,
       durationS: wav.durationSeconds,
       style,

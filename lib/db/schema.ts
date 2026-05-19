@@ -5,7 +5,6 @@ import {
   text,
   bigint,
   real,
-  index,
   uniqueIndex,
 } from "drizzle-orm/pg-core";
 
@@ -30,7 +29,6 @@ export const takes = pgTable(
     songId: integer("song_id")
       .notNull()
       .references(() => songs.id),
-    contributor: text("contributor").notNull(),
     storageKey: text("storage_key").notNull(),
     durationS: real("duration_s"),
     style: text("style").notNull(),
@@ -43,11 +41,6 @@ export const takes = pgTable(
   },
   (t) => ({
     storageKeyUnique: uniqueIndex("takes_storage_key_unique").on(t.storageKey),
-    dedupIdx: index("takes_song_contributor_created_idx").on(
-      t.songId,
-      t.contributor,
-      t.createdAt,
-    ),
   }),
 );
 

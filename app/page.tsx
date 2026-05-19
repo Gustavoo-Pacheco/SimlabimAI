@@ -34,7 +34,6 @@ export default function HomePage() {
   const [songs, setSongs] = useState<SongOption[]>([]);
   const [songsLoaded, setSongsLoaded] = useState(false);
 
-  const [contributor, setContributor] = useState("");
   const [songChoice, setSongChoice] = useState<string>("");
   const [newTitle, setNewTitle] = useState("");
   const [author, setAuthor] = useState("");
@@ -44,11 +43,6 @@ export default function HomePage() {
   const [submitting, setSubmitting] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const stored = localStorage.getItem("simlabim.contributor");
-    if (stored) setContributor(stored);
-  }, []);
 
   useEffect(() => {
     fetch("/api/songs")
@@ -74,7 +68,6 @@ export default function HomePage() {
 
   const trimmedAuthor = author.trim();
   const authorSlug = trimmedAuthor.length === 0 ? "" : slugify(trimmedAuthor);
-  const contributorValid = isSlug(contributor);
   const slugValid = isSlug(effectiveSlug);
   const titleValid = isAddingNew ? trimmedTitle.length > 0 : true;
   const authorValid = trimmedAuthor.length === 0 || authorSlug.length > 0;
@@ -82,18 +75,12 @@ export default function HomePage() {
   const wavReady = wavBlob !== null;
 
   const canSubmit =
-    contributorValid &&
     slugValid &&
     titleValid &&
     authorValid &&
     styleValid &&
     wavReady &&
     !submitting;
-
-  const handleContributorChange = (value: string) => {
-    setContributor(value);
-    if (isSlug(value)) localStorage.setItem("simlabim.contributor", value);
-  };
 
   const submit = async () => {
     if (!canSubmit || !wavBlob) return;
@@ -126,7 +113,6 @@ export default function HomePage() {
           song_slug: effectiveSlug,
           song_title: effectiveTitle,
           author: authorSlug || "unknown",
-          contributor,
           style,
           storage_key,
           take_id,
@@ -176,29 +162,6 @@ export default function HomePage() {
           Ajude o Simsalabim a treinar e reconhecer músicas.
         </p>
       </header>
-
-      <div className="h-7" />
-
-      {/* Identity */}
-      <section
-        className="reveal flex w-full flex-col items-center gap-3"
-        style={{ ["--reveal-index" as string]: 1 }}
-      >
-        <SectionTitle>Quem está gravando</SectionTitle>
-        <label className="flex w-full flex-col items-center gap-2">
-          <span className={labelClass}>Seu apelido</span>
-          <input
-            type="text"
-            value={contributor}
-            onChange={(e) => handleContributorChange(e.target.value.toLowerCase())}
-            placeholder="ex: gustavo"
-            className={inputClass}
-          />
-          {contributor.length > 0 && !contributorValid && (
-            <Hint tone="red">Use apenas letras minúsculas, números e hífens.</Hint>
-          )}
-        </label>
-      </section>
 
       <div className="h-7" />
 
