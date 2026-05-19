@@ -46,17 +46,17 @@ In Supabase Studio → **Storage** → **New bucket**:
 
 ### 4. Create the schema + seed
 
-Open Supabase Studio → **SQL Editor** and run the schema DDL (mirror of
-`lib/db/schema.ts` — `songs` and `takes` tables with their indexes). Then
-seed:
+All database work happens in Supabase Studio → **SQL Editor**:
 
-```bash
-npm run db:seed     # inserts example songs from drizzle/seed.sql
-```
+1. Run the schema DDL — `songs` and `takes` tables with their indexes,
+   mirroring `lib/db/schema.ts`.
+2. Insert seed songs by hand (or paste any `INSERT INTO songs ...`
+   statement). New songs after that are added through the app's
+   "Adicionar nova música" UI.
 
-`drizzle-kit` is no longer installed, so there is no `db:push`. Schema
-changes are done by hand in Supabase Studio; keep `lib/db/schema.ts` in
-sync.
+There is no `drizzle-kit`, no migrations folder, and no seed script.
+Schema changes are done by hand in Supabase Studio; keep
+`lib/db/schema.ts` in sync so typed queries don't lie.
 
 ## Develop
 
