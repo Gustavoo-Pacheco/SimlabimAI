@@ -233,58 +233,124 @@ export default function Recorder({ onWavReady, disabled }: Props) {
     if (rec && rec.state !== "inactive") rec.stop();
   };
 
+  const statusLabel =
+    state === "idle"
+      ? "Pronto"
+      : state === "recording"
+        ? "Gravando"
+        : state === "processing"
+          ? "Processando"
+          : state === "ready"
+            ? "Gravado"
+            : "Erro";
+
   return (
-    <div className="flex flex-col gap-3">
-      <div className="flex items-center gap-3">
+    <div className="flex flex-col items-center gap-3">
+      {/* Status row */}
+      <div className="flex w-full items-center justify-center gap-3 text-[13px] text-[color:var(--color-ink-muted)]">
+        <span className="inline-flex items-center gap-2">
+          <span
+            aria-hidden
+            className={`inline-block h-1.5 w-1.5 rounded-full ${
+              state === "recording"
+                ? "bg-[color:var(--color-pastel-red-ink)] pulse-dot"
+                : state === "ready"
+                  ? "bg-[color:var(--color-pastel-green-ink)]"
+                  : state === "error"
+                    ? "bg-[color:var(--color-pastel-red-ink)]"
+                    : "bg-[#cfcfcc]"
+            }`}
+          />
+          {statusLabel}
+        </span>
+        <span aria-hidden className="text-[#cfcfcc]">·</span>
+        <span className="tabular-nums">
+          {elapsed > 0 ? `${elapsed.toFixed(1)}s` : "0.0s"}
+        </span>
+      </div>
+
+      {/* Waveform / level meter — fixed height so layout is stable */}
+      <div className="relative h-9 w-full overflow-hidden rounded border border-[var(--color-rule)] bg-[#fafaf9]">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div
+            className="h-[60%] w-full origin-center transition-transform duration-75 ease-out"
+            style={{
+              background:
+                state === "recording"
+                  ? "linear-gradient(90deg, transparent, rgba(159,47,45,0.18), transparent)"
+                  : "linear-gradient(90deg, transparent, rgba(0,0,0,0.04), transparent)",
+              transform: `scaleY(${
+                state === "recording" ? 0.3 + level * 1.4 : 0.25
+              })`,
+            }}
+          />
+        </div>
+        {/* Center axis */}
+        <div className="pointer-events-none absolute left-0 right-0 top-1/2 h-px -translate-y-1/2 bg-[var(--color-rule)]" />
+      </div>
+
+      {/* Action row */}
+      <div className="flex w-full flex-col items-center gap-2">
         {state === "idle" || state === "error" ? (
           <button
             type="button"
             onClick={start}
             disabled={disabled}
-            className="rounded-md bg-red-600 px-4 py-2 text-sm font-medium text-white hover:bg-red-700 disabled:cursor-not-allowed disabled:opacity-50"
+            className="inline-flex items-center gap-2 rounded-full bg-[#c8362f] px-5 py-2 text-[14px] font-medium text-white transition-all duration-150 hover:bg-[#a82d27] active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-[#d9a8a6]"
           >
-            ● Gravar
+            <span
+              aria-hidden
+              className="inline-block h-2 w-2 rounded-full bg-white"
+            />
+            Gravar
           </button>
         ) : state === "recording" ? (
           <button
             type="button"
             onClick={stop}
-            className="rounded-md bg-neutral-800 px-4 py-2 text-sm font-medium text-white hover:bg-neutral-900"
+            className="inline-flex items-center gap-2 rounded-full border border-[var(--color-rule)] bg-white px-5 py-2 text-[14px] font-medium text-[color:var(--color-ink)] transition-all duration-150 hover:border-[#cfcfcc] active:scale-[0.98]"
           >
-            ■ Parar
+            <span
+              aria-hidden
+              className="inline-block h-2 w-2 bg-[color:var(--color-ink)]"
+            />
+            Parar
           </button>
         ) : state === "processing" ? (
-          <span className="text-sm text-neutral-500">Processando…</span>
-        ) : (
-          <button
-            type="button"
-            onClick={reset}
-            className="rounded-md border border-neutral-300 px-4 py-2 text-sm font-medium hover:bg-neutral-100"
-          >
-            Regravar
-          </button>
-        )}
-        {state === "recording" && (
-          <span className="font-mono text-sm tabular-nums text-neutral-600">
-            {elapsed.toFixed(1)}s
+          <span className="text-[13px] text-[color:var(--color-ink-muted)]">
+            Processando áudio…
           </span>
+        ) : (
+          <>
+            <button
+              type="button"
+              onClick={reset}
+              className="inline-flex items-center gap-2 rounded-full border border-[var(--color-rule)] bg-white px-5 py-2 text-[14px] font-medium text-[color:var(--color-ink)] transition-all duration-150 hover:border-[#cfcfcc] active:scale-[0.98]"
+            >
+              Regravar
+            </button>
+            <span className="text-[12px] text-[color:var(--color-ink-muted)]">
+              Ouça antes de enviar
+            </span>
+          </>
         )}
       </div>
 
-      {state === "recording" && (
-        <div className="h-2 w-full overflow-hidden rounded bg-neutral-200">
-          <div
-            className="h-full bg-red-500 transition-[width] duration-75"
-            style={{ width: `${Math.min(100, level * 100)}%` }}
-          />
-        </div>
-      )}
-
       {previewUrl && (
-        <audio src={previewUrl} controls className="w-full" preload="auto" />
+        <audio
+          src={previewUrl}
+          controls
+          preload="auto"
+          className="w-full"
+          style={{ height: 40 }}
+        />
       )}
 
-      {error && <p className="text-sm text-red-600">{error}</p>}
+      {error && (
+        <p className="rounded-md border border-[#f3c8ca] bg-[var(--color-pastel-red-bg)] px-3 py-2 text-[12px] text-[color:var(--color-pastel-red-ink)]">
+          {error}
+        </p>
+      )}
     </div>
   );
 }

@@ -1,13 +1,28 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans:
-    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  --font-sans: var(--font-geist-sans), "SF Pro Display", "Helvetica Neue", system-ui, sans-serif;
+  --font-serif: var(--font-newsreader), "Newsreader", "Lyon Text", Georgia, serif;
+  --font-mono: var(--font-geist-mono), "SF Mono", "JetBrains Mono", ui-monospace, monospace;
+
+  --color-canvas: #fbfbfa;
+  --color-surface: #ffffff;
+  --color-ink: #111111;
+  --color-ink-muted: #787774;
+  --color-rule: #eaeaea;
+
+  --color-pastel-red-bg: #fdebec;
+  --color-pastel-red-ink: #9f2f2d;
+  --color-pastel-blue-bg: #e1f3fe;
+  --color-pastel-blue-ink: #1f6c9f;
+  --color-pastel-green-bg: #edf3ec;
+  --color-pastel-green-ink: #346538;
+  --color-pastel-yellow-bg: #fbf3db;
+  --color-pastel-yellow-ink: #956400;
 }
 
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
 }
 
 html,
@@ -17,4 +32,80 @@ body {
 
 body {
   font-family: var(--font-sans);
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+/* Subtle ambient warm spot — adds quiet depth without breaking flat aesthetic */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(60rem 40rem at 80% -10%, rgba(255, 220, 180, 0.06), transparent 60%),
+    radial-gradient(50rem 30rem at -10% 110%, rgba(200, 220, 255, 0.05), transparent 60%);
+  z-index: -1;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Scroll-entry — used by elements with .reveal */
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  animation: reveal-in 600ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(var(--reveal-index, 0) * 80ms);
+}
+
+/* Recording pulse — used on idle/recording state dot */
+@keyframes soft-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(0.92); }
+}
+
+.pulse-dot {
+  animation: soft-pulse 1.4s ease-in-out infinite;
+}
+
+/* Native form polish */
+input,
+select,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::placeholder {
+  color: #b3b2af;
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%23787774' stroke-width='1.25'><path d='M3 4.5l3 3 3-3'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+  background-size: 12px 12px;
+  padding-right: 2.25rem;
 }

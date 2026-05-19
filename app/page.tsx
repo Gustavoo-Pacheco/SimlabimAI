@@ -16,7 +16,18 @@ const STYLE_LABELS: Record<Style, string> = {
   assobiar: "Assobiar",
 };
 
+const STYLE_HINTS: Record<Style, string> = {
+  cantar: "Voz com palavras.",
+  cantarolar: "Melodia sem palavras.",
+  assobiar: "Apenas o assobio.",
+};
+
 const NEW_SONG = "__new__";
+
+const inputClass =
+  "w-full rounded-md border border-[var(--color-rule)] bg-white px-3 py-2 text-[15px] text-center text-[color:var(--color-ink)] outline-none transition-colors placeholder:text-[#b3b2af] focus:border-[color:var(--color-ink)]";
+
+const labelClass = "text-[13px] text-[color:var(--color-ink-muted)]";
 
 export default function HomePage() {
   const [songs, setSongs] = useState<SongOption[]>([]);
@@ -129,7 +140,6 @@ export default function HomePage() {
         throw new Error(finalizeJson.error ?? `Finalize failed: ${finalize.status}`);
       }
 
-      // refresh song list to include any newly added entry
       if (isAddingNew) {
         const refreshed = await fetch("/api/songs")
           .then((r) => r.json() as Promise<{ songs?: SongOption[] }>)
@@ -140,8 +150,8 @@ export default function HomePage() {
         setNewTitle("");
       }
 
-      setToast("Enviado!");
-      setTimeout(() => setToast(null), 2000);
+      setToast("Enviado! Obrigado");
+      setTimeout(() => setToast(null), 2200);
       setWavBlob(null);
     } catch (err) {
       console.error(err);
@@ -163,133 +173,254 @@ export default function HomePage() {
   );
 
   return (
-    <main className="mx-auto flex max-w-md flex-col gap-6 p-6">
-      <header className="flex flex-col gap-1">
-        <h1 className="text-2xl font-semibold">SimlabimAI</h1>
-        <p className="text-sm text-neutral-500">
-          Ao enviar, você concorda em contribuir esta gravação para o conjunto
-          de dados de pesquisa.
+    <main className="mx-auto flex min-h-screen w-full max-w-xl flex-col items-center px-4 pb-16 pt-10 text-center sm:pt-14">
+      {/* Header */}
+      <header
+        className="reveal flex flex-col items-center gap-5"
+        style={{ ["--reveal-index" as string]: 0 }}
+      >
+        <h1 className="text-[36px] font-semibold leading-[1.1] tracking-[-0.025em] sm:text-[48px]">
+          Faça parte do treinamento do Simsalabim!
+        </h1>
+        <p className="max-w-[42ch] text-[16px] text-[color:var(--color-ink-muted)]">
+          Ajude o Simsalabim a treinar e reconhecer músicas.
         </p>
       </header>
 
-      <label className="flex flex-col gap-1">
-        <span className="text-sm font-medium">Seu apelido</span>
-        <input
-          type="text"
-          value={contributor}
-          onChange={(e) => handleContributorChange(e.target.value.toLowerCase())}
-          placeholder="ex: gustavo"
-          className="rounded-md border border-neutral-300 px-3 py-2 text-sm"
-        />
-        {contributor.length > 0 && !contributorValid && (
-          <span className="text-xs text-red-600">
-            Use apenas letras minúsculas, números e hífens.
-          </span>
-        )}
-      </label>
+      <div className="h-7" />
 
-      <label className="flex flex-col gap-1">
-        <span className="text-sm font-medium">Música</span>
-        <select
-          value={songChoice}
-          onChange={(e) => setSongChoice(e.target.value)}
-          className="rounded-md border border-neutral-300 px-3 py-2 text-sm"
-          disabled={!songsLoaded}
-        >
-          <option value="" disabled>
-            {songsLoaded ? "Selecione…" : "Carregando…"}
-          </option>
-          {songOptions}
-          <option value={NEW_SONG}>+ Adicionar nova música</option>
-        </select>
-      </label>
-
-      {isAddingNew && (
-        <label className="flex flex-col gap-1">
-          <span className="text-sm font-medium">Título da música</span>
+      {/* Identity */}
+      <section
+        className="reveal flex w-full flex-col items-center gap-3"
+        style={{ ["--reveal-index" as string]: 1 }}
+      >
+        <SectionTitle>Quem está gravando</SectionTitle>
+        <label className="flex w-full flex-col items-center gap-2">
+          <span className={labelClass}>Seu apelido</span>
           <input
             type="text"
-            value={newTitle}
-            onChange={(e) => setNewTitle(e.target.value)}
-            placeholder="ex: Meteoro"
-            className="rounded-md border border-neutral-300 px-3 py-2 text-sm"
+            value={contributor}
+            onChange={(e) => handleContributorChange(e.target.value.toLowerCase())}
+            placeholder="ex: gustavo"
+            className={inputClass}
           />
-          {trimmedTitle.length > 0 && derivedSlug.length > 0 && (
-            <span className="text-xs text-neutral-500">
-              Identificador: <code>{derivedSlug}</code>
-            </span>
-          )}
-          {trimmedTitle.length > 0 && derivedSlug.length === 0 && (
-            <span className="text-xs text-red-600">
-              Título precisa conter letras ou números.
-            </span>
+          {contributor.length > 0 && !contributorValid && (
+            <Hint tone="red">Use apenas letras minúsculas, números e hífens.</Hint>
           )}
         </label>
-      )}
+      </section>
 
-      <label className="flex flex-col gap-1">
-        <span className="text-sm font-medium">Autor da música</span>
-        <input
-          type="text"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-          placeholder="deixe em branco se não souber"
-          className="rounded-md border border-neutral-300 px-3 py-2 text-sm"
-        />
-        {trimmedAuthor.length > 0 && authorSlug.length > 0 && (
-          <span className="text-xs text-neutral-500">
-            Identificador: <code>{authorSlug}</code>
-          </span>
-        )}
-        {trimmedAuthor.length > 0 && !authorValid && (
-          <span className="text-xs text-red-600">
-            Nome precisa conter letras ou números.
-          </span>
-        )}
-      </label>
+      <div className="h-7" />
 
-      <fieldset className="flex flex-col gap-2">
-        <legend className="text-sm font-medium">Como você vai gravar</legend>
-        <div className="grid grid-cols-3 gap-2">
-          {STYLES.map((s) => (
-            <button
-              key={s}
-              type="button"
-              onClick={() => setStyle(s)}
-              className={`rounded-md border px-3 py-2 text-xs ${
-                style === s
-                  ? "border-neutral-900 bg-neutral-900 text-white"
-                  : "border-neutral-300 bg-white hover:bg-neutral-100"
-              }`}
-            >
-              {STYLE_LABELS[s]}
-            </button>
-          ))}
-        </div>
-      </fieldset>
-
-      <Recorder onWavReady={setWavBlob} disabled={submitting} />
-
-      <button
-        type="button"
-        onClick={submit}
-        disabled={!canSubmit}
-        className="rounded-md bg-emerald-600 px-4 py-3 text-sm font-medium text-white hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-50"
+      {/* Song */}
+      <section
+        className="reveal flex w-full flex-col items-center gap-3"
+        style={{ ["--reveal-index" as string]: 2 }}
       >
-        {submitting ? "Enviando…" : "Enviar"}
-      </button>
+        <SectionTitle>Qual música</SectionTitle>
+        <label className="flex w-full flex-col items-center gap-2">
+          <span className={labelClass}>Música</span>
+          <select
+            value={songChoice}
+            onChange={(e) => {
+              setSongChoice(e.target.value);
+              if (e.target.value !== NEW_SONG) {
+                setAuthor("");
+                setNewTitle("");
+              }
+            }}
+            disabled={!songsLoaded}
+            className={inputClass}
+          >
+            <option value="" disabled>
+              {songsLoaded ? "Selecione…" : "Carregando…"}
+            </option>
+            {songOptions}
+            <option value={NEW_SONG}>+ Adicionar nova música</option>
+          </select>
+        </label>
 
-      {error && (
-        <p className="rounded-md bg-red-50 px-3 py-2 text-sm text-red-700">
-          {error}
+        {isAddingNew && (
+          <label className="flex w-full flex-col items-center gap-2">
+            <span className={labelClass}>Título da nova música</span>
+            <input
+              type="text"
+              value={newTitle}
+              onChange={(e) => setNewTitle(e.target.value)}
+              placeholder="ex: Meteoro"
+              className={inputClass}
+            />
+            {trimmedTitle.length > 0 && derivedSlug.length === 0 && (
+              <Hint tone="red">Título precisa conter letras ou números.</Hint>
+            )}
+          </label>
+        )}
+
+        {isAddingNew && (
+          <label className="flex w-full flex-col items-center gap-2">
+            <span className={labelClass}>Autor (opcional)</span>
+            <input
+              type="text"
+              value={author}
+              onChange={(e) => setAuthor(e.target.value)}
+              placeholder="deixe em branco se não souber"
+              className={inputClass}
+            />
+            {trimmedAuthor.length > 0 && !authorValid && (
+              <Hint tone="red">Nome precisa conter letras ou números.</Hint>
+            )}
+          </label>
+        )}
+      </section>
+
+      <div className="h-7" />
+
+      {/* Style */}
+      <section
+        className="reveal flex w-full flex-col items-center gap-3"
+        style={{ ["--reveal-index" as string]: 3 }}
+      >
+        <SectionTitle>Como vai gravar</SectionTitle>
+        <div className="grid w-full grid-cols-1 gap-3 sm:grid-cols-3">
+          {STYLES.map((s) => {
+            const active = style === s;
+            return (
+              <button
+                key={s}
+                type="button"
+                onClick={() => setStyle(s)}
+                className={`flex flex-col items-center gap-1 rounded-lg border px-3 py-2.5 text-center transition-all duration-150 ${
+                  active
+                    ? "border-[color:var(--color-ink)] bg-[color:var(--color-ink)] text-white"
+                    : "border-[var(--color-rule)] bg-white hover:border-[#cfcfcc]"
+                }`}
+              >
+                <span className="text-[15px] font-medium leading-tight">
+                  {STYLE_LABELS[s].split(" ")[0]}
+                </span>
+                <span
+                  className={`text-[12px] leading-snug ${
+                    active ? "text-white/70" : "text-[color:var(--color-ink-muted)]"
+                  }`}
+                >
+                  {STYLE_HINTS[s]}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </section>
+
+      <div className="h-7" />
+
+      {/* Record */}
+      <section
+        className="reveal flex w-full flex-col items-center gap-3"
+        style={{ ["--reveal-index" as string]: 4 }}
+      >
+        <SectionTitle>Gravar</SectionTitle>
+        <div className="w-full rounded-lg border border-[var(--color-rule)] bg-white p-3 sm:p-4">
+          <Recorder onWavReady={setWavBlob} disabled={submitting} />
+        </div>
+      </section>
+
+      <div className="h-7" />
+
+      {/* Submit */}
+      <section
+        className="reveal flex w-full flex-col items-center gap-4"
+        style={{ ["--reveal-index" as string]: 5 }}
+      >
+        <button
+          type="button"
+          onClick={submit}
+          disabled={!canSubmit}
+          className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#346538] px-5 py-2.5 text-[14px] font-medium tracking-tight text-white transition-colors duration-150 hover:bg-[#2b5530] active:scale-[0.98] disabled:cursor-not-allowed disabled:bg-[#a8c0a8] disabled:text-white/90"
+        >
+          {submitting ? "Enviando…" : "Enviar"}
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 16 16"
+            fill="none"
+            className="transition-transform duration-200 group-hover:translate-x-0.5"
+            aria-hidden
+          >
+            <path
+              d="M3 8h10m0 0L9 4m4 4l-4 4"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+
+        {error && (
+          <p className="w-full rounded-md border border-[#f3c8ca] bg-[var(--color-pastel-red-bg)] px-3 py-2 text-[13px] text-[color:var(--color-pastel-red-ink)]">
+            {error}
+          </p>
+        )}
+
+        <p className="max-w-[44ch] text-[12px] leading-relaxed text-[color:var(--color-ink-muted)]">
+          Ao enviar, você concorda em contribuir esta gravação para o conjunto
+          de dados de pesquisa.
         </p>
-      )}
+      </section>
+
+      {/* Footer */}
+      <footer className="mt-12 flex w-full flex-col items-center gap-1 text-[12px] text-[color:var(--color-ink-muted)]">
+        <span>SimlabimAI</span>
+        <span>Insper AI · 2026</span>
+      </footer>
 
       {toast && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 rounded-md bg-emerald-600 px-4 py-2 text-sm font-medium text-white shadow-lg">
-          {toast}
+        <div
+          role="status"
+          className="fixed bottom-6 left-1/2 -translate-x-1/2 rounded-full border border-[var(--color-rule)] bg-white px-3 py-2 text-[13px] font-medium text-[color:var(--color-ink)]"
+          style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}
+        >
+          <span className="inline-flex items-center gap-2">
+            <span
+              aria-hidden
+              className="inline-block h-1.5 w-1.5 rounded-full bg-[color:var(--color-pastel-green-ink)]"
+            />
+            {toast}
+          </span>
         </div>
       )}
     </main>
+  );
+}
+
+function SectionTitle({ children }: { children: React.ReactNode }) {
+  return (
+    <h2 className="text-[20px] font-medium tracking-tight text-[color:var(--color-ink)]">
+      {children}
+    </h2>
+  );
+}
+
+function Spacer() {
+  return <div className="my-10 h-px w-12 bg-[var(--color-rule)]" />;
+}
+
+function Hint({
+  children,
+  tone = "muted",
+}: {
+  children: React.ReactNode;
+  tone?: "muted" | "red";
+}) {
+  return (
+    <span
+      className={`text-[12px] leading-snug ${
+        tone === "red"
+          ? "text-[color:var(--color-pastel-red-ink)]"
+          : "text-[color:var(--color-ink-muted)]"
+      }`}
+    >
+      {children}
+    </span>
   );
 }
