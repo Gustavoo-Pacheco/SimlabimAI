@@ -7,6 +7,7 @@ import {
   real,
   uniqueIndex,
 } from "drizzle-orm/pg-core";
+import authors from "@shared/authors.json";
 
 export const songs = pgTable(
   "songs",
@@ -14,7 +15,7 @@ export const songs = pgTable(
     id: serial("id").primaryKey(),
     slug: text("slug").notNull(),
     title: text("title").notNull(),
-    author: text("author").notNull().default("unknown"),
+    author: text("author").notNull().default(authors.unknownSentinel),
     createdAt: bigint("created_at", { mode: "number" }).notNull(),
   },
   (t) => ({

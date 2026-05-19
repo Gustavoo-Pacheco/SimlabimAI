@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import Recorder from "@/components/Recorder";
 import SongPicker from "@/components/SongPicker";
 import { isSlug, slugify, STYLES, type Style } from "@/lib/slugs";
+import authors from "@shared/authors.json";
+
+const UNKNOWN = authors.unknownSentinel;
 
 interface SongOption {
   slug: string;
@@ -112,7 +115,7 @@ export default function HomePage() {
         body: JSON.stringify({
           song_slug: effectiveSlug,
           song_title: effectiveTitle,
-          author: authorSlug || "unknown",
+          author: authorSlug || UNKNOWN,
           style,
           storage_key,
           take_id,

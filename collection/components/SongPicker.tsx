@@ -2,6 +2,9 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import authors from "@shared/authors.json";
+
+const UNKNOWN = authors.unknownSentinel;
 
 export interface SongPickerOption {
   slug: string;
@@ -127,7 +130,7 @@ export default function SongPicker({
       ? "+ Nova música"
       : selected
         ? selected.title +
-          (selected.author !== "unknown" ? ` — ${selected.author}` : "")
+          (selected.author !== UNKNOWN ? ` — ${selected.author}` : "")
         : placeholder;
 
   const popup =
@@ -233,7 +236,7 @@ export default function SongPicker({
                       }`}
                     />
                     <span className="flex-1 truncate text-left">{o.title}</span>
-                    {o.author !== "unknown" && (
+                    {o.author !== UNKNOWN && (
                       <span className="shrink-0 text-[12px] text-[color:var(--color-ink-muted)]">
                         {o.author}
                       </span>

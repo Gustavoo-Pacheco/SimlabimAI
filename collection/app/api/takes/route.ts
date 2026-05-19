@@ -1,14 +1,18 @@
 import { NextResponse } from "next/server";
 import { assertSlug, assertStyle, BadInput, isSlug } from "@/lib/slugs";
 import { downloadObject } from "@/lib/storage";
+import { buildStorageKey } from "@/lib/storage-keys";
 import { parseWavHeader } from "@/lib/wav";
 import { getDb } from "@/lib/db";
 import { takes } from "@/lib/db/schema";
 import { upsertSong } from "@/lib/upsert-author";
+import limits from "@shared/limits.json";
+import authors from "@shared/authors.json";
 
-const MIN_BYTES = 8 * 1024;
-const MAX_BYTES = 40 * 1024 * 1024;
-const UA_MAX = 512;
+const MIN_BYTES = limits.audioMinBytes;
+const MAX_BYTES = limits.audioMaxBytes;
+const UA_MAX = limits.userAgentMaxLength;
+const UNKNOWN = authors.unknownSentinel;
 
 async function sha256Hex(bytes: Uint8Array): Promise<string> {
   const data = bytes.buffer.slice(
@@ -39,8 +43,8 @@ export async function POST(req: Request) {
     const rawAuthor =
       typeof body.author === "string" && body.author.trim().length > 0
         ? body.author.trim()
-        : "unknown";
-    if (rawAuthor !== "unknown" && !isSlug(rawAuthor)) {
+        : UNKNOWN;
+    if (rawAuthor !== UNKNOWN && !isSlug(rawAuthor)) {
       throw new BadInput("author must be a slug or empty");
     }
 
@@ -49,7 +53,7 @@ export async function POST(req: Request) {
       throw new BadInput("take_id must be a uuid");
     }
 
-    const expectedKey = `raw_audio/${songSlug}/${takeId}.wav`;
+    const expectedKey = buildStorageKey(songSlug, takeId);
     if (body.storage_key !== expectedKey) {
       throw new BadInput("storage_key does not match song_slug + take_id");
     }

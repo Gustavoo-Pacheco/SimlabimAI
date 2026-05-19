@@ -37,15 +37,17 @@ Implementation lives in `components/Recorder.tsx` and `lib/wav.ts`.
 
 ## Server-side validation (every `POST /api/takes`)
 
+All thresholds and enum values below come from `@shared/*.json` — see `../shared/README.md`. Don't re-hardcode them in this subfolder.
+
 Before writing the row:
 - HEAD the Supabase Storage object — must exist.
-- Object size: 8 KB ≤ size ≤ 12 MB (allows up to ~6 min mono 16 kHz; raised from initial 5 MB).
-- Slug fields (`song`, `author`) match `^[a-z0-9-]+$`, length 1–64.
-- `style` is exactly one of `'cantar' | 'cantarolar' | 'assobiar'`.
+- Object size: `limits.audioMinBytes` ≤ size ≤ `limits.audioMaxBytes` (currently 8 KB to 40 MB; allows ~20 min mono 16 kHz).
+- Slug fields (`song`, `author`) match `slugs.pattern` (`^[a-z0-9-]+$`), length `slugs.minLength`–`slugs.maxLength`.
+- `style` is one of `styles.values` (`cantar | cantarolar | assobiar`).
 - Reject duplicate `(song_id, audio_sha256)` (replay/dedup).
 - `duration_s` is parsed from the WAV header **server-side**. Never trust a client-reported number.
 - Stream the object once to compute `audio_sha256` (SHA-256 of the bytes). Store it on the row.
-- `user_agent` is captured but never used in any decision — store as-is, max length 512.
+- `user_agent` truncated to `limits.userAgentMaxLength` (512); captured but never used in any decision.
 
 ## DB schema (truth lives in `lib/db/schema.ts`)
 

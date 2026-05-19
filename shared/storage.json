@@ -1,0 +1,5 @@
+{
+  "rawAudioPrefix": "raw_audio",
+  "fileExtension": "wav",
+  "keyTemplate": "raw_audio/{songSlug}/{takeUuid}.wav"
+}

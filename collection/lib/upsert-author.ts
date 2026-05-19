@@ -1,6 +1,9 @@
 import { sql } from "drizzle-orm";
 import { getDb } from "./db";
 import { songs } from "./db/schema";
+import authors from "@shared/authors.json";
+
+const UNKNOWN = authors.unknownSentinel;
 
 /**
  * Upserts a song by slug. The author-merge rule:
@@ -24,7 +27,7 @@ export async function upsertSong(
     .onConflictDoUpdate({
       target: songs.slug,
       set: {
-        author: sql`COALESCE(NULLIF(excluded.author, 'unknown'), ${songs.author}, excluded.author)`,
+        author: sql`COALESCE(NULLIF(excluded.author, ${UNKNOWN}), ${songs.author}, excluded.author)`,
       },
     })
     .returning();

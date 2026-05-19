@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { assertSlug, BadInput } from "@/lib/slugs";
 import { createSignedUploadUrl } from "@/lib/storage";
+import { buildStorageKey } from "@/lib/storage-keys";
 
 export async function POST(req: Request) {
   try {
@@ -8,7 +9,7 @@ export async function POST(req: Request) {
     const songSlug = assertSlug(body.song_slug, "song_slug");
 
     const takeId = crypto.randomUUID();
-    const storageKey = `raw_audio/${songSlug}/${takeId}.wav`;
+    const storageKey = buildStorageKey(songSlug, takeId);
     const { uploadUrl } = await createSignedUploadUrl(storageKey);
 
     return NextResponse.json({

@@ -1,0 +1,6 @@
+{
+  "audioMinBytes": 8192,
+  "audioMaxBytes": 41943040,
+  "userAgentMaxLength": 512,
+  "maxRecordSeconds": 1200
+}
