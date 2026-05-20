@@ -1,0 +1,27 @@
+# Training-loop hyperparameters (Part 2 of PLAN.md, section [8]).
+
+optimizer:
+  name: adamw
+  lr: 3.0e-4
+  weight_decay: 1.0e-4
+
+schedule:
+  name: cosine
+  warmup_ratio: 0.05
+
+loop:
+  batch_size: 64
+  epochs: 200
+  grad_clip: 5.0
+  mixed_precision: true
+  num_workers: 4
+  eval_every: 5
+  early_stop_patience: 20
+
+mixup:
+  alpha: 0.2
+  p: 0.2
+
+checkpoints:
+  dir: checkpoints
+  keep_best_by: map_at_10

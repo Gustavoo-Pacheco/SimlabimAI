@@ -1,0 +1,12 @@
+# Encoder + loss hyperparameters (Part 2 of PLAN.md).
+
+encoder:
+  embedding_dim: 256
+  fusion_hidden: 512
+  dropout: 0.1
+  f0_in_channels: 2
+
+arcface:
+  margin: 0.5
+  scale: 30.0
+  sub_centers: 3

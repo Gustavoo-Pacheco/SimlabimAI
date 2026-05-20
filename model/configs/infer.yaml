@@ -1,0 +1,7 @@
+# Runtime inference parameters (PLAN.md section [11]).
+
+window_s: 10.0
+hop_s: 5.0
+top_k_per_window: 3
+top_n_return: 5
+threshold: null            # set after calibration on val set

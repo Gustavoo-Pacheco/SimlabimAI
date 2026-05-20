@@ -1,0 +1,50 @@
+{
+  "seed": 0,
+  "train": [
+    "baby",
+    "balada",
+    "blue-suede-shoes",
+    "cidade-vizinha",
+    "con-calma",
+    "convoque-seu-buda",
+    "counting-stars",
+    "disritmia",
+    "dogs",
+    "don-t-stand-so-close-to-me",
+    "dont-look-back-in-anger",
+    "dragostea-din-tei",
+    "every-breath-you-take",
+    "fallen-down",
+    "fico-assim-sem-voce",
+    "god-s-plan",
+    "im-yours",
+    "jesus-chorou",
+    "knocking-on-heavens-door",
+    "november-rain",
+    "pais-do-futebol",
+    "samurai",
+    "spectre",
+    "stand-by-me",
+    "the-logical-song",
+    "ultima-noite",
+    "vienna",
+    "with-or-without-you",
+    "without-me"
+  ],
+  "val": [
+    "heroes",
+    "hotel-california",
+    "just-dance",
+    "love-i-need",
+    "ode-to-the-mets",
+    "pescador-de-ilusoes"
+  ],
+  "test": [
+    "bitch-lasagna",
+    "garota-de-ipanema",
+    "like-a-rolling-stone",
+    "mulher-de-fases",
+    "please-mister-postman",
+    "price-tag"
+  ]
+}

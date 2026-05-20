@@ -1,0 +1,57 @@
+# Hyperparameters for preproc + representation + augmentation (Part 1 of PLAN.md).
+# Single source of truth — nothing here should be hardcoded in src/*.py.
+
+sample_rate: 16000
+
+crop:
+  duration_s: 10.0
+  train_mode: random       # uniform-random start within the take
+  eval_mode: center        # deterministic center crop
+
+loudness:
+  target_lufs: -23.0
+
+trim:
+  step_size_ms: 50.0       # coarser PESTO pass just for finding voice boundaries
+  confidence_threshold: 0.5
+  margin_ms: 100.0
+
+mel:
+  n_fft: 400
+  hop_length: 160
+  win_length: 400
+  n_mels: 80
+  f_min: 50
+  f_max: 8000
+  mel_scale: htk
+  power: 2.0
+  log: log1p
+
+pesto:
+  step_size_ms: 30.0
+  confidence_threshold: 0.5
+  median_subtract: true
+
+augment:
+  waveform:
+    gain:            {p: 0.5, range_db: [-10, 3]}
+    pitch_shift:     {p: 0.8, range_semitones: [-6, 6]}
+    time_stretch:    {p: 0.8, range_log: [0.8, 1.25]}
+    eq:              {p: 0.3, range_db: [-6, 6]}
+    background_noise:
+      p: 0.4
+      range_db: [5, 30]
+      path: null         # set to a folder of background .wavs; null skips this aug
+    gaussian_snr:    {p: 0.5, range_db: [5, 30]}
+    ir_reverb:
+      p: 0.3
+      path: null         # set to a folder of impulse response .wavs; null skips
+    mp3:             {p: 0.2, bitrate_kbps: [32, 96]}
+    # formant_shift not yet implemented — pyworld-based variant pending
+  mel:
+    spec_augment:
+      time_mask: {p: 0.7, count: 2, max_width: 30}
+      freq_mask: {p: 0.7, count: 2, max_width: 20}
+    mixup_intra_class:
+      p: 0.2
+      alpha: 0.2
