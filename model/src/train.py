@@ -146,7 +146,7 @@ def save_checkpoint(path: Path, *, model, loss_fn, optimizer, scheduler, state: 
 
 
 def load_checkpoint(path: Path, *, model, loss_fn=None, optimizer=None, scheduler=None) -> TrainState:
-    ckpt = torch.load(path, map_location="cpu")
+    ckpt = torch.load(path, map_location="cpu", weights_only=False)
     model.load_state_dict(ckpt["model"])
     if loss_fn is not None and "loss_fn" in ckpt:
         loss_fn.load_state_dict(ckpt["loss_fn"])
