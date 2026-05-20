@@ -1,0 +1,15 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# venv
+.venv/
+.venv-stats/
+
+# exported dataset (audio bytes never go in git)
+data/
+
+# python
+__pycache__/
+*.pyc
