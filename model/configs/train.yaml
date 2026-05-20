@@ -14,7 +14,7 @@ loop:
   epochs: 200
   grad_clip: 5.0
   mixed_precision: true
-  num_workers: 4
+  num_workers: 2     # Colab GPU runtimes have only 2 CPUs; PESTO is CPU-heavy
   eval_every: 5
   early_stop_patience: 20
 
