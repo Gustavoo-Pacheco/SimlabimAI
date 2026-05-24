@@ -1,0 +1,842 @@
+[
+  {
+    "title": "Cidade Vizinha",
+    "author": "Henrique & Juliano",
+    "author_slug": "henrique-juliano",
+    "slug": "cidade-vizinha",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "Quem de Nós Dois",
+    "author": "Ícaro e Gilmar",
+    "author_slug": "icaro-e-gilmar",
+    "slug": "quem-de-nos-dois",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "Dois Enganados",
+    "author": "Murilo Huff",
+    "author_slug": "murilo-huff",
+    "slug": "dois-enganados",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "Entregador de Flor",
+    "author": "Diego & Victor Hugo",
+    "author_slug": "diego-victor-hugo",
+    "slug": "entregador-de-flor",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "Morena",
+    "author": "NATTAN",
+    "author_slug": "nattan",
+    "slug": "morena",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "Quarta Cadeira",
+    "author": "Matheus & Kauan",
+    "author_slug": "matheus-kauan",
+    "slug": "quarta-cadeira",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "Até Você Voltar",
+    "author": "Henrique & Juliano",
+    "author_slug": "henrique-juliano",
+    "slug": "ate-voce-voltar",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "Humilde Residência",
+    "author": "Michel Teló",
+    "author_slug": "michel-telo",
+    "slug": "humilde-residencia",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "Butecologia",
+    "author": "Fiduma & Jeca",
+    "author_slug": "fiduma-jeca",
+    "slug": "butecologia",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "Pátio do Posto",
+    "author": "Zé Neto & Cristiano",
+    "author_slug": "ze-neto-cristiano",
+    "slug": "patio-do-posto",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "Os Anjos Cantam",
+    "author": "Jorge & Mateus",
+    "author_slug": "jorge-mateus",
+    "slug": "os-anjos-cantam",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "Vidinha De Balada",
+    "author": "Henrique & Juliano",
+    "author_slug": "henrique-juliano",
+    "slug": "vidinha-de-balada",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "Tá Namorando E Me Querendo",
+    "author": "Henrique & Juliano",
+    "author_slug": "henrique-juliano",
+    "slug": "ta-namorando-e-me-querendo",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "Zuar e Beber",
+    "author": "Henrique & Diego",
+    "author_slug": "henrique-diego",
+    "slug": "zuar-e-beber",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "Mais Amor E Menos Drama",
+    "author": "Henrique & Juliano",
+    "author_slug": "henrique-juliano",
+    "slug": "mais-amor-e-menos-drama",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "Vida Vazia",
+    "author": "Bruno & Marrone",
+    "author_slug": "bruno-marrone",
+    "slug": "vida-vazia",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "Ela e Ela",
+    "author": "Zé Neto & Cristiano",
+    "author_slug": "ze-neto-cristiano",
+    "slug": "ela-e-ela",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "Não Tô Valendo Nada",
+    "author": "Henrique & Juliano",
+    "author_slug": "henrique-juliano",
+    "slug": "nao-to-valendo-nada",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "O Alvo",
+    "author": "Diego & Victor Hugo",
+    "author_slug": "diego-victor-hugo",
+    "slug": "o-alvo",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "Sonho de Amor",
+    "author": "Natanzinho Lima",
+    "author_slug": "natanzinho-lima",
+    "slug": "sonho-de-amor",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "Coisas Que Eu Sei",
+    "author": "Felipe Amorim",
+    "author_slug": "felipe-amorim",
+    "slug": "coisas-que-eu-sei",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "Sinônimos",
+    "author": "Chitãozinho & Xororó",
+    "author_slug": "chitaozinho-xororo",
+    "slug": "sinonimos",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "Cabelo de Sol",
+    "author": "Léo Foguete",
+    "author_slug": "leo-foguete",
+    "slug": "cabelo-de-sol",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "Ele Quer Ser Eu",
+    "author": "Henrique & Juliano",
+    "author_slug": "henrique-juliano",
+    "slug": "ele-quer-ser-eu",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "Festa Boa",
+    "author": "Henrique & Diego",
+    "author_slug": "henrique-diego",
+    "slug": "festa-boa",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "Galeria",
+    "author": "Léo Foguete",
+    "author_slug": "leo-foguete",
+    "slug": "galeria",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "Tem Nada A Ver",
+    "author": "Jorge & Mateus",
+    "author_slug": "jorge-mateus",
+    "slug": "tem-nada-a-ver",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "MEIO TERMO",
+    "author": "Luan Santana",
+    "author_slug": "luan-santana",
+    "slug": "meio-termo",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "Pra Que Fui Me Apaixonar",
+    "author": "João Gomes",
+    "author_slug": "joao-gomes",
+    "slug": "pra-que-fui-me-apaixonar",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "Decide Aí",
+    "author": "Matheus & Kauan",
+    "author_slug": "matheus-kauan",
+    "slug": "decide-ai",
+    "source": "spotify_playlist_6hRz2UWy2DC3i1B0K1mOSN"
+  },
+  {
+    "title": "Stateside + Zara Larsson",
+    "author": "PinkPantheress",
+    "author_slug": "pinkpantheress",
+    "slug": "stateside-zara-larsson",
+    "listeners": 49646,
+    "lastfm_url": "https://www.last.fm/music/PinkPantheress/_/Stateside+%252B+Zara+Larsson",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Lua Cheia",
+    "author": "Marina Sena",
+    "author_slug": "marina-sena",
+    "slug": "lua-cheia",
+    "listeners": 41274,
+    "lastfm_url": "https://www.last.fm/music/Marina+Sena/_/Lua+Cheia",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "P.I.T.T.Y. (Parecendo Uma Cafetina)",
+    "author": "NandaTsunami",
+    "author_slug": "nandatsunami",
+    "slug": "p-i-t-t-y-parecendo-uma-cafetina",
+    "listeners": 38896,
+    "lastfm_url": "https://www.last.fm/music/NandaTsunami/_/P.I.T.T.Y.+(Parecendo+Uma+Cafetina)",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Billie Jean",
+    "author": "Michael Jackson",
+    "author_slug": "michael-jackson",
+    "slug": "billie-jean",
+    "listeners": 37242,
+    "lastfm_url": "https://www.last.fm/music/Michael+Jackson/_/Billie+Jean",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Desmitificar",
+    "author": "Marina Sena",
+    "author_slug": "marina-sena",
+    "slug": "desmitificar",
+    "listeners": 36602,
+    "lastfm_url": "https://www.last.fm/music/Marina+Sena/_/Desmitificar",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Manchild",
+    "author": "Sabrina Carpenter",
+    "author_slug": "sabrina-carpenter",
+    "slug": "manchild",
+    "listeners": 35254,
+    "lastfm_url": "https://www.last.fm/music/Sabrina+Carpenter/_/Manchild",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Dracula - JENNIE remix",
+    "author": "Tame Impala",
+    "author_slug": "tame-impala",
+    "slug": "dracula-jennie-remix",
+    "listeners": 34928,
+    "lastfm_url": "https://www.last.fm/music/Tame+Impala/_/Dracula+-+JENNIE+remix",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "drop dead",
+    "author": "Olivia Rodrigo",
+    "author_slug": "olivia-rodrigo",
+    "slug": "drop-dead",
+    "listeners": 33493,
+    "lastfm_url": "https://www.last.fm/music/Olivia+Rodrigo/_/drop+dead",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Beat It",
+    "author": "Michael Jackson",
+    "author_slug": "michael-jackson",
+    "slug": "beat-it",
+    "listeners": 32561,
+    "lastfm_url": "https://www.last.fm/music/Michael+Jackson/_/Beat+It",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Midnight Sun",
+    "author": "Zara Larsson",
+    "author_slug": "zara-larsson",
+    "slug": "midnight-sun",
+    "listeners": 31146,
+    "lastfm_url": "https://www.last.fm/music/Zara+Larsson/_/Midnight+Sun",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Fame Is a Gun",
+    "author": "Addison Rae",
+    "author_slug": "addison-rae",
+    "slug": "fame-is-a-gun",
+    "listeners": 30335,
+    "lastfm_url": "https://www.last.fm/music/Addison+Rae/_/Fame+Is+a+Gun",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "House Tour",
+    "author": "Sabrina Carpenter",
+    "author_slug": "sabrina-carpenter",
+    "slug": "house-tour",
+    "listeners": 29664,
+    "lastfm_url": "https://www.last.fm/music/Sabrina+Carpenter/_/House+Tour",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Mandinga",
+    "author": "Anitta",
+    "author_slug": "anitta",
+    "slug": "mandinga",
+    "listeners": 28622,
+    "lastfm_url": "https://www.last.fm/music/Anitta/_/Mandinga",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Numa Ilha",
+    "author": "Marina Sena",
+    "author_slug": "marina-sena",
+    "slug": "numa-ilha",
+    "listeners": 27749,
+    "lastfm_url": "https://www.last.fm/music/Marina+Sena/_/Numa+Ilha",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Babydoll",
+    "author": "Dominic Fike",
+    "author_slug": "dominic-fike",
+    "slug": "babydoll",
+    "listeners": 26550,
+    "lastfm_url": "https://www.last.fm/music/Dominic+Fike/_/Babydoll",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Desgraça",
+    "author": "Anitta",
+    "author_slug": "anitta",
+    "slug": "desgraca",
+    "listeners": 26473,
+    "lastfm_url": "https://www.last.fm/music/Anitta/_/Desgra%C3%A7a",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Good Luck, Babe!",
+    "author": "Chappell Roan",
+    "author_slug": "chappell-roan",
+    "slug": "good-luck-babe",
+    "listeners": 25355,
+    "lastfm_url": "https://www.last.fm/music/Chappell+Roan/_/Good+Luck,+Babe%21",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "The Fate of Ophelia",
+    "author": "Taylor Swift",
+    "author_slug": "taylor-swift",
+    "slug": "the-fate-of-ophelia",
+    "listeners": 24687,
+    "lastfm_url": "https://www.last.fm/music/Taylor+Swift/_/The+Fate+of+Ophelia",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Earrings",
+    "author": "Malcolm Todd",
+    "author_slug": "malcolm-todd",
+    "slug": "earrings",
+    "listeners": 24646,
+    "lastfm_url": "https://www.last.fm/music/Malcolm+Todd/_/Earrings",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Into You",
+    "author": "Ariana Grande",
+    "author_slug": "ariana-grande",
+    "slug": "into-you",
+    "listeners": 24430,
+    "lastfm_url": "https://www.last.fm/music/Ariana+Grande/_/Into+You",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Beauty and a Beat",
+    "author": "Justin Bieber",
+    "author_slug": "justin-bieber",
+    "slug": "beauty-and-a-beat",
+    "listeners": 24313,
+    "lastfm_url": "https://www.last.fm/music/Justin+Bieber/_/Beauty+and+a+Beat",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Tears",
+    "author": "Sabrina Carpenter",
+    "author_slug": "sabrina-carpenter",
+    "slug": "tears",
+    "listeners": 24301,
+    "lastfm_url": "https://www.last.fm/music/Sabrina+Carpenter/_/Tears",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Don't Stop 'Til You Get Enough",
+    "author": "Michael Jackson",
+    "author_slug": "michael-jackson",
+    "slug": "don-t-stop-til-you-get-enough",
+    "listeners": 23959,
+    "lastfm_url": "https://www.last.fm/music/Michael+Jackson/_/Don%27t+Stop+%27Til+You+Get+Enough",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "SWIM",
+    "author": "BTS",
+    "author_slug": "bts",
+    "slug": "swim",
+    "listeners": 23872,
+    "lastfm_url": "https://www.last.fm/music/BTS/_/SWIM",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Hooligan",
+    "author": "BTS",
+    "author_slug": "bts",
+    "slug": "hooligan",
+    "listeners": 23818,
+    "lastfm_url": "https://www.last.fm/music/BTS/_/Hooligan",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "PINKY UP",
+    "author": "KATSEYE",
+    "author_slug": "katseye",
+    "slug": "pinky-up",
+    "listeners": 23443,
+    "lastfm_url": "https://www.last.fm/music/KATSEYE/_/PINKY+UP",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "See You Again (feat. Kali Uchis)",
+    "author": "Tyler, The Creator",
+    "author_slug": "tyler-the-creator",
+    "slug": "see-you-again-feat-kali-uchis",
+    "listeners": 23307,
+    "lastfm_url": "https://www.last.fm/music/Tyler,+The+Creator/_/See+You+Again+(feat.+Kali+Uchis)",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Body to Body",
+    "author": "BTS",
+    "author_slug": "bts",
+    "slug": "body-to-body",
+    "listeners": 23264,
+    "lastfm_url": "https://www.last.fm/music/BTS/_/Body+to+Body",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Dracula",
+    "author": "Tame Impala",
+    "author_slug": "tame-impala",
+    "slug": "dracula",
+    "listeners": 22876,
+    "lastfm_url": "https://www.last.fm/music/Tame+Impala/_/Dracula",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "2.0",
+    "author": "BTS",
+    "author_slug": "bts",
+    "slug": "2-0",
+    "listeners": 22738,
+    "lastfm_url": "https://www.last.fm/music/BTS/_/2.0",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "The One That Got Away",
+    "author": "Katy Perry",
+    "author_slug": "katy-perry",
+    "slug": "the-one-that-got-away",
+    "listeners": 22573,
+    "lastfm_url": "https://www.last.fm/music/Katy+Perry/_/The+One+That+Got+Away",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Meia Noite",
+    "author": "Anitta",
+    "author_slug": "anitta",
+    "slug": "meia-noite",
+    "listeners": 22181,
+    "lastfm_url": "https://www.last.fm/music/Anitta/_/Meia+Noite",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Choka Choka",
+    "author": "Anitta",
+    "author_slug": "anitta",
+    "slug": "choka-choka",
+    "listeners": 21931,
+    "lastfm_url": "https://www.last.fm/music/Anitta/_/Choka+Choka",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Chicago",
+    "author": "Michael Jackson",
+    "author_slug": "michael-jackson",
+    "slug": "chicago",
+    "listeners": 21577,
+    "lastfm_url": "https://www.last.fm/music/Michael+Jackson/_/Chicago",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Human Nature",
+    "author": "Michael Jackson",
+    "author_slug": "michael-jackson",
+    "slug": "human-nature",
+    "listeners": 21471,
+    "lastfm_url": "https://www.last.fm/music/Michael+Jackson/_/Human+Nature",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Sinais de fogo",
+    "author": "Preta Gil",
+    "author_slug": "preta-gil",
+    "slug": "sinais-de-fogo",
+    "listeners": 21102,
+    "lastfm_url": "https://www.last.fm/music/Preta+Gil/_/Sinais+de+fogo",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "they don’t know ’bout us",
+    "author": "BTS",
+    "author_slug": "bts",
+    "slug": "they-don-t-know-bout-us",
+    "listeners": 20883,
+    "lastfm_url": "https://www.last.fm/music/BTS/_/they+don%E2%80%99t+know+%E2%80%99bout+us",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Nobody’s Son",
+    "author": "Sabrina Carpenter",
+    "author_slug": "sabrina-carpenter",
+    "slug": "nobody-s-son",
+    "listeners": 20817,
+    "lastfm_url": "https://www.last.fm/music/Sabrina+Carpenter/_/Nobody%E2%80%99s+Son",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Creep",
+    "author": "Radiohead",
+    "author_slug": "radiohead",
+    "slug": "creep",
+    "listeners": 20751,
+    "lastfm_url": "https://www.last.fm/music/Radiohead/_/Creep",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "WHERE IS MY HUSBAND!",
+    "author": "RAYE",
+    "author_slug": "raye",
+    "slug": "where-is-my-husband",
+    "listeners": 20479,
+    "lastfm_url": "https://www.last.fm/music/RAYE/_/WHERE+IS+MY+HUSBAND%21",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Girl Like Me",
+    "author": "PinkPantheress",
+    "author_slug": "pinkpantheress",
+    "slug": "girl-like-me",
+    "listeners": 20473,
+    "lastfm_url": "https://www.last.fm/music/PinkPantheress/_/Girl+Like+Me",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Extraordinária",
+    "author": "Ebony",
+    "author_slug": "ebony",
+    "slug": "extraordinaria",
+    "listeners": 20431,
+    "lastfm_url": "https://www.last.fm/music/Ebony/_/Extraordin%C3%A1ria",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Espresso",
+    "author": "Sabrina Carpenter",
+    "author_slug": "sabrina-carpenter",
+    "slug": "espresso",
+    "listeners": 20303,
+    "lastfm_url": "https://www.last.fm/music/Sabrina+Carpenter/_/Espresso",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "The Less I Know the Better",
+    "author": "Tame Impala",
+    "author_slug": "tame-impala",
+    "slug": "the-less-i-know-the-better",
+    "listeners": 20189,
+    "lastfm_url": "https://www.last.fm/music/Tame+Impala/_/The+Less+I+Know+the+Better",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "back to friends",
+    "author": "sombr",
+    "author_slug": "sombr",
+    "slug": "back-to-friends",
+    "listeners": 20162,
+    "lastfm_url": "https://www.last.fm/music/sombr/_/back+to+friends",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Sweater Weather",
+    "author": "The Neighbourhood",
+    "author_slug": "the-neighbourhood",
+    "slug": "sweater-weather",
+    "listeners": 20147,
+    "lastfm_url": "https://www.last.fm/music/The+Neighbourhood/_/Sweater+Weather",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Sign of the Times",
+    "author": "Harry Styles",
+    "author_slug": "harry-styles",
+    "slug": "sign-of-the-times",
+    "listeners": 20034,
+    "lastfm_url": "https://www.last.fm/music/Harry+Styles/_/Sign+of+the+Times",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Smooth Criminal - 2012 Remaster",
+    "author": "Michael Jackson",
+    "author_slug": "michael-jackson",
+    "slug": "smooth-criminal-2012-remaster",
+    "listeners": 20030,
+    "lastfm_url": "https://www.last.fm/music/Michael+Jackson/_/Smooth+Criminal+-+2012+Remaster",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Coisas Naturais",
+    "author": "Marina Sena",
+    "author_slug": "marina-sena",
+    "slug": "coisas-naturais",
+    "listeners": 19965,
+    "lastfm_url": "https://www.last.fm/music/Marina+Sena/_/Coisas+Naturais",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Fuso",
+    "author": "Duquesa",
+    "author_slug": "duquesa",
+    "slug": "fuso",
+    "listeners": 19962,
+    "lastfm_url": "https://www.last.fm/music/Duquesa/_/Fuso",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "BEAT UP CHANEL$",
+    "author": "Slayyyter",
+    "author_slug": "slayyyter",
+    "slug": "beat-up-chanel",
+    "listeners": 19920,
+    "lastfm_url": "https://www.last.fm/music/Slayyyter/_/BEAT+UP+CHANEL$",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Bring Your Love",
+    "author": "Madonna",
+    "author_slug": "madonna",
+    "slug": "bring-your-love",
+    "listeners": 19639,
+    "lastfm_url": "https://www.last.fm/music/Madonna/_/Bring+Your+Love",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "BIRDS OF A FEATHER",
+    "author": "Billie Eilish",
+    "author_slug": "billie-eilish",
+    "slug": "birds-of-a-feather",
+    "listeners": 19586,
+    "lastfm_url": "https://www.last.fm/music/Billie+Eilish/_/BIRDS+OF+A+FEATHER",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "DANCE...",
+    "author": "Slayyyter",
+    "author_slug": "slayyyter",
+    "slug": "dance",
+    "listeners": 19496,
+    "lastfm_url": "https://www.last.fm/music/Slayyyter/_/DANCE...",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "CARNAVAL",
+    "author": "Marina Sena",
+    "author_slug": "marina-sena",
+    "slug": "carnaval",
+    "listeners": 19482,
+    "lastfm_url": "https://www.last.fm/music/Marina+Sena/_/CARNAVAL",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "The Subway",
+    "author": "Chappell Roan",
+    "author_slug": "chappell-roan",
+    "slug": "the-subway",
+    "listeners": 19475,
+    "lastfm_url": "https://www.last.fm/music/Chappell+Roan/_/The+Subway",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "FYA",
+    "author": "BTS",
+    "author_slug": "bts",
+    "slug": "fya",
+    "listeners": 19383,
+    "lastfm_url": "https://www.last.fm/music/BTS/_/FYA",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Bring Me to Life",
+    "author": "Evanescence",
+    "author_slug": "evanescence",
+    "slug": "bring-me-to-life",
+    "listeners": 19297,
+    "lastfm_url": "https://www.last.fm/music/Evanescence/_/Bring+Me+to+Life",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Please Please Please",
+    "author": "Sabrina Carpenter",
+    "author_slug": "sabrina-carpenter",
+    "slug": "please-please-please",
+    "listeners": 19156,
+    "lastfm_url": "https://www.last.fm/music/Sabrina+Carpenter/_/Please+Please+Please",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "JETSKI",
+    "author": "PEDRO SAMPAIO",
+    "author_slug": "pedro-sampaio",
+    "slug": "jetski",
+    "listeners": 19102,
+    "lastfm_url": "https://www.last.fm/music/PEDRO+SAMPAIO/_/JETSKI",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Juno",
+    "author": "Sabrina Carpenter",
+    "author_slug": "sabrina-carpenter",
+    "slug": "juno",
+    "listeners": 19028,
+    "lastfm_url": "https://www.last.fm/music/Sabrina+Carpenter/_/Juno",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Abracadabra",
+    "author": "Lady Gaga",
+    "author_slug": "lady-gaga",
+    "slug": "abracadabra",
+    "listeners": 18960,
+    "lastfm_url": "https://www.last.fm/music/Lady+Gaga/_/Abracadabra",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Linger",
+    "author": "The Cranberries",
+    "author_slug": "the-cranberries",
+    "slug": "linger",
+    "listeners": 18916,
+    "lastfm_url": "https://www.last.fm/music/The+Cranberries/_/Linger",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Pq Vc Não Me Liga?",
+    "author": "NandaTsunami",
+    "author_slug": "nandatsunami",
+    "slug": "pq-vc-nao-me-liga",
+    "listeners": 18899,
+    "lastfm_url": "https://www.last.fm/music/NandaTsunami/_/Pq+Vc+N%C3%A3o+Me+Liga%3F",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Taste",
+    "author": "Sabrina Carpenter",
+    "author_slug": "sabrina-carpenter",
+    "slug": "taste",
+    "listeners": 18841,
+    "lastfm_url": "https://www.last.fm/music/Sabrina+Carpenter/_/Taste",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Busy Woman",
+    "author": "Sabrina Carpenter",
+    "author_slug": "sabrina-carpenter",
+    "slug": "busy-woman",
+    "listeners": 18738,
+    "lastfm_url": "https://www.last.fm/music/Sabrina+Carpenter/_/Busy+Woman",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "we can't be friends (wait for your love)",
+    "author": "Ariana Grande",
+    "author_slug": "ariana-grande",
+    "slug": "we-can-t-be-friends-wait-for-your-love",
+    "listeners": 18667,
+    "lastfm_url": "https://www.last.fm/music/Ariana+Grande/_/we+can%27t+be+friends+(wait+for+your+love)",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Aliens",
+    "author": "BTS",
+    "author_slug": "bts",
+    "slug": "aliens",
+    "listeners": 18663,
+    "lastfm_url": "https://www.last.fm/music/BTS/_/Aliens",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "505",
+    "author": "Arctic Monkeys",
+    "author_slug": "arctic-monkeys",
+    "slug": "505",
+    "listeners": 18621,
+    "lastfm_url": "https://www.last.fm/music/Arctic+Monkeys/_/505",
+    "source": "lastfm_br"
+  },
+  {
+    "title": "Dreams - 2004 Remaster",
+    "author": "Fleetwood Mac",
+    "author_slug": "fleetwood-mac",
+    "slug": "dreams-2004-remaster",
+    "listeners": 18496,
+    "lastfm_url": "https://www.last.fm/music/Fleetwood+Mac/_/Dreams+-+2004+Remaster",
+    "source": "lastfm_br"
+  }
+]

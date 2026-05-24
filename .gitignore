@@ -13,3 +13,6 @@ next-env.d.ts
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
+
+# Large local dataset archives (exceed GitHub 100 MB limit)
+dataset_data.zip
