@@ -33,3 +33,5 @@ npm run dev
 ## Deployment
 
 `collection/` deploys to Vercel. The Vercel project's **Root Directory** must be set to `collection` (the repo root is not a Next.js app).
+
+Commit 
